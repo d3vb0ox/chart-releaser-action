@@ -337,7 +337,7 @@ release_charts() {
     args+=(--skip-existing)
   fi
   if [[ "$mark_as_latest" = false ]]; then
-    args+=(--make-release-latest=false)
+    args+=(--make-release-latest=false --release-name-template="v{{ .Version }}")
   fi
   if [[ -n "$pages_branch" ]]; then
     args+=(--pages-branch "$pages_branch")
