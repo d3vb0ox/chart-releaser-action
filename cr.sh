@@ -342,9 +342,6 @@ release_charts() {
   if [[ -n "$pages_branch" ]]; then
     args+=(--pages-branch "$pages_branch")
   fi
-  if [[ -n "$release-name-template" ]]; then
-    args+=(--release-name-template "$release-name-template")
-  fi
 
   echo 'Releasing charts...'
   cr upload "${args[@]}"
