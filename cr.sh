@@ -337,14 +337,14 @@ release_charts() {
     args+=(--skip-existing)
   fi
   if [[ "$mark_as_latest" = false ]]; then
-    args+=(--make-release-latest=false --release-name-template="v{{ .Version }}")
+    args+=(--make-release-latest=false)
   fi
   if [[ -n "$pages_branch" ]]; then
     args+=(--pages-branch "$pages_branch")
   fi
 
   echo 'Releasing charts...'
-  cr upload "${args[@]}"
+  cr upload "${args[@]} --release-name-template="v{{ .Version }}""
 }
 
 update_index() {
